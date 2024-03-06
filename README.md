@@ -85,7 +85,7 @@ Monotonic stacks are particularly useful in problems involving finding the neare
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-### `std::set`:
+# std::set :
 
 ```cpp
 #include <iostream>
@@ -122,7 +122,7 @@ int main() {
 ```
 -----------------------------------
 
-### `std::unordered_set`:
+# std::unordered_set:
 
 ```cpp
 #include <iostream>

@@ -133,7 +133,7 @@ This example demonstrates various methods of `std::map` such as insertion, erasu
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-Stack
+# Stack
 
 Stacks are commonly used in various types of data structure and algorithm (DSA) problems where you need to keep track of elements in a last-in-first-out (LIFO) manner.
 
@@ -146,7 +146,7 @@ We can use stacks for :
 
 ----------------------------------
 
-Monotonic stack is a specialized stack data structure used in problems where you need to find the next greater or next smaller element for each element in an array, maintaining a certain monotonic order (either increasing or decreasing).
+`Monotonic stack` is a specialized stack data structure used in problems where you need to find the next greater or next smaller element for each element in an array, maintaining a certain monotonic order (either increasing or decreasing).
 
 In simple words, a monotonic stack is a stack that maintains either a strictly increasing or strictly decreasing order of elements. The key idea is that elements are pushed onto or popped from the stack in such a way that it always preserves the desired monotonic order. This property enables efficient computation of the next greater or next smaller element for each element in an array.
 
@@ -158,6 +158,21 @@ Monotonic stacks are particularly useful in problems involving finding the neare
 
 # std::set :
 
+In C++, the `std::set` container from the Standard Template Library (STL) is a sorted associative container that contains unique elements only. Here are some of the most commonly used member functions and methods of `std::set`:
+
+1. **insert()**: Inserts an element into the set.
+2. **erase()**: Removes an element from the set.
+3. **find()**: Searches for an element in the set.
+4. **size()**: Returns the number of elements in the set.
+5. **empty()**: Checks if the set is empty.
+6. **begin()**: Returns an iterator to the beginning of the set.
+7. **end()**: Returns an iterator to the end of the set.
+8. **lower_bound()**: Returns an iterator to the first element not less than the given key.
+9. **upper_bound()**: Returns an iterator to the first element greater than the given key.
+10. **equal_range()**: Returns a range containing all elements with the given key.
+
+Here's an example demonstrating the usage of these methods:
+
 ```cpp
 #include <iostream>
 #include <set>
@@ -165,69 +180,135 @@ Monotonic stacks are particularly useful in problems involving finding the neare
 int main() {
     std::set<int> mySet;
 
-    // Insert elements
-    mySet.insert(5);
-    mySet.insert(2);
-    mySet.insert(8);
+    // Inserting elements into the set
+    mySet.insert(3);
     mySet.insert(1);
+    mySet.insert(2);
+    mySet.insert(2); // Ignored because 2 is already in the set
 
-    // Print elements
-    for (const auto& elem : mySet) {
+    // Displaying elements
+    std::cout << "Set elements: ";
+    for (auto& elem : mySet) {
         std::cout << elem << " ";
     }
     std::cout << std::endl;
 
-    // Erase an element
+    // Erasing an element
     mySet.erase(2);
 
-    // Find an element
-    auto it = mySet.find(5);
-    if (it != mySet.end()) {
+    // Finding an element
+    auto it = mySet.find(2);
+    if (it != mySet.end())
         std::cout << "Element found: " << *it << std::endl;
-    } else {
-        std::cout << "Element not found!" << std::endl;
+    else
+        std::cout << "Element not found" << std::endl;
+
+    // Checking size and emptiness
+    std::cout << "Size of the set: " << mySet.size() << std::endl;
+    std::cout << "Is set empty? " << (mySet.empty() ? "Yes" : "No") << std::endl;
+
+    // Iterating over the set
+    std::cout << "Set elements: ";
+    for (auto it = mySet.begin(); it != mySet.end(); ++it) {
+        std::cout << *it << " ";
     }
+    std::cout << std::endl;
+
+    // Using lower_bound and upper_bound
+    auto lower = mySet.lower_bound(1); // Iterator to the element with key 1
+    auto upper = mySet.upper_bound(3); // Iterator to the element with key 3
+    std::cout << "Elements between keys 1 and 3: ";
+    for (auto it = lower; it != upper; ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }
 ```
+
+This example demonstrates various methods of `std::set` such as insertion, erasure, finding elements, checking size and emptiness, iterating over elements, and using `lower_bound` and `upper_bound` for range-based operations.
+
 -----------------------------------
 
 # std::unordered_set:
+
+In C++, the `std::unordered_set` container from the Standard Template Library (STL) is an unordered associative container that contains unique elements only. Here are some of the most commonly used member functions and methods of `std::unordered_set`:
+
+1. **insert()**: Inserts an element into the unordered set.
+2. **erase()**: Removes an element from the unordered set.
+3. **find()**: Searches for an element in the unordered set.
+4. **size()**: Returns the number of elements in the unordered set.
+5. **empty()**: Checks if the unordered set is empty.
+6. **begin()**: Returns an iterator to the beginning of the unordered set.
+7. **end()**: Returns an iterator to the end of the unordered set.
+8. **bucket_count()**: Returns the number of buckets in the unordered set.
+9. **bucket_size()**: Returns the number of elements in a specific bucket.
+10. **load_factor()**: Returns the average number of elements per bucket.
+11. **max_load_factor()**: Sets or gets the maximum load factor of the unordered set.
+
+Here's an example demonstrating the usage of these methods:
 
 ```cpp
 #include <iostream>
 #include <unordered_set>
 
 int main() {
-    std::unordered_set<int> myUnorderedSet;
+    std::unordered_set<int> mySet;
 
-    // Insert elements
-    myUnorderedSet.insert(5);
-    myUnorderedSet.insert(2);
-    myUnorderedSet.insert(8);
-    myUnorderedSet.insert(1);
+    // Inserting elements into the unordered set
+    mySet.insert(3);
+    mySet.insert(1);
+    mySet.insert(2);
+    mySet.insert(2); // Ignored because 2 is already in the set
 
-    // Print elements
-    for (const auto& elem : myUnorderedSet) {
+    // Displaying elements
+    std::cout << "Unordered set elements: ";
+    for (auto& elem : mySet) {
         std::cout << elem << " ";
     }
     std::cout << std::endl;
 
-    // Erase an element
-    myUnorderedSet.erase(2);
+    // Erasing an element
+    mySet.erase(2);
 
-    // Find an element
-    auto it = myUnorderedSet.find(5);
-    if (it != myUnorderedSet.end()) {
+    // Finding an element
+    auto it = mySet.find(2);
+    if (it != mySet.end())
         std::cout << "Element found: " << *it << std::endl;
-    } else {
-        std::cout << "Element not found!" << std::endl;
+    else
+        std::cout << "Element not found" << std::endl;
+
+    // Checking size and emptiness
+    std::cout << "Size of the unordered set: " << mySet.size() << std::endl;
+    std::cout << "Is unordered set empty? " << (mySet.empty() ? "Yes" : "No") << std::endl;
+
+    // Iterating over the unordered set
+    std::cout << "Unordered set elements: ";
+    for (auto it = mySet.begin(); it != mySet.end(); ++it) {
+        std::cout << *it << " ";
     }
+    std::cout << std::endl;
+
+    // Get the number of buckets and elements in each bucket
+    std::cout << "Number of buckets: " << mySet.bucket_count() << std::endl;
+    for (size_t i = 0; i < mySet.bucket_count(); ++i) {
+        std::cout << "Bucket " << i << " has " << mySet.bucket_size(i) << " elements." << std::endl;
+    }
+
+    // Get load factor
+    std::cout << "Load factor: " << mySet.load_factor() << std::endl;
+
+    // Set or get the maximum load factor
+    mySet.max_load_factor(0.7);
+    std::cout << "Maximum load factor: " << mySet.max_load_factor() << std::endl;
 
     return 0;
 }
 ```
+
+This example demonstrates various methods of `std::unordered_set` such as insertion, erasure, finding elements, checking size and emptiness, iterating over elements, and accessing properties such as bucket count, bucket size, load factor, and maximum load factor.
+
 
 ### Explanation:
 

@@ -61,6 +61,74 @@ Key 2 does not exist after erasing
 These examples cover creating an unordered map, inserting elements, accessing elements using `operator[]`, iterating over the map, finding elements, erasing elements, and checking if an element exists.
 
 ----------------------------------------------------------------------------------------------------------------------------
+# ordered map (`std::map`)
+
+In C++, `std::map` is a sorted associative container that contains key-value pairs with unique keys. Here are some of the most commonly used member functions and methods of `std::map`:
+
+1. **insert()**: Inserts an element into the map.
+2. **erase()**: Removes an element from the map.
+3. **find()**: Searches for an element with a given key.
+4. **size()**: Returns the number of elements in the map.
+5. **empty()**: Checks if the map is empty.
+6. **begin()**: Returns an iterator to the beginning of the map.
+7. **end()**: Returns an iterator to the end of the map.
+8. **lower_bound()**: Returns an iterator to the first element not less than the given key.
+9. **upper_bound()**: Returns an iterator to the first element greater than the given key.
+10. **equal_range()**: Returns a range containing all elements with the given key.
+
+Here's an example demonstrating the usage of these methods:
+
+```cpp
+#include <iostream>
+#include <map>
+
+int main() {
+    std::map<int, std::string> myMap;
+
+    // Inserting elements into the map
+    myMap.insert(std::make_pair(1, "One"));
+    myMap.insert(std::make_pair(2, "Two"));
+    myMap.insert(std::make_pair(3, "Three"));
+
+    // Accessing elements
+    std::cout << "Value associated with key 2: " << myMap[2] << std::endl;
+
+    // Erasing an element
+    myMap.erase(2);
+
+    // Finding an element
+    auto it = myMap.find(2);
+    if (it != myMap.end())
+        std::cout << "Element found: " << it->second << std::endl;
+    else
+        std::cout << "Element not found" << std::endl;
+
+    // Checking size and emptiness
+    std::cout << "Size of the map: " << myMap.size() << std::endl;
+    std::cout << "Is map empty? " << (myMap.empty() ? "Yes" : "No") << std::endl;
+
+    // Iterating over the map
+    std::cout << "Map elements: ";
+    for (auto& pair : myMap) {
+        std::cout << "{" << pair.first << ": " << pair.second << "} ";
+    }
+    std::cout << std::endl;
+
+    // Using lower_bound and upper_bound
+    auto lower = myMap.lower_bound(1); // Iterator to the element with key 1
+    auto upper = myMap.upper_bound(3); // Iterator to the element with key 3
+    std::cout << "Elements between keys 1 and 3: ";
+    for (auto it = lower; it != upper; ++it) {
+        std::cout << "{" << it->first << ": " << it->second << "} ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+```
+
+This example demonstrates various methods of `std::map` such as insertion, erasure, finding elements, checking size and emptiness, iterating over elements, and using `lower_bound` and `upper_bound` for range-based operations.
+----------------------------------------------------------------------------------------------------------------------------
 
 Stack
 

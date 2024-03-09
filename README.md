@@ -63,6 +63,7 @@ These examples cover creating an unordered map, inserting elements, accessing el
 ----------------------------------------------------------------------------------------------------------------------------
 # ordered map (`std::map`)
 
+
 In C++, `std::map` is a sorted associative container that contains key-value pairs with unique keys. Here are some of the most commonly used member functions and methods of `std::map`:
 
 1. **insert()**: Inserts an element into the map.
@@ -75,6 +76,7 @@ In C++, `std::map` is a sorted associative container that contains key-value pai
 8. **lower_bound()**: Returns an iterator to the first element not less than the given key.
 9. **upper_bound()**: Returns an iterator to the first element greater than the given key.
 10. **equal_range()**: Returns a range containing all elements with the given key.
+
 
 Here's an example demonstrating the usage of these methods:
 
@@ -128,6 +130,7 @@ int main() {
 ```
 
 This example demonstrates various methods of `std::map` such as insertion, erasure, finding elements, checking size and emptiness, iterating over elements, and using `lower_bound` and `upper_bound` for range-based operations.
+
 ----------------------------------------------------------------------------------------------------------------------------
 
 Stack

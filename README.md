@@ -318,3 +318,34 @@ This example demonstrates various methods of `std::unordered_set` such as insert
   - `std::unordered_set` is implemented as a hash table, providing O(1) average time complexity for insert, erase, and find operations.
 - Because of hashing, the elements in `std::unordered_set` are not ordered, while `std::set` maintains elements in sorted order.
 - The examples provided demonstrate basic usage of these operations.
+
+--------------------------------------------------------------------------------------------------
+# Populate a vector with elements from a set:
+
+```cpp
+#include <vector>
+#include <set>
+
+int main() {
+    std::set<int> mySet = {1, 2, 3, 4, 5}; 
+    std::vector<int> myVector(mySet.begin(), mySet.end());
+    return 0;
+}
+```
+
+# Populate a set with elements from a vector:
+
+```cpp
+#include <set>
+#include <vector>
+
+int main() {
+    std::vector<int> myVector = {1, 2, 3, 4, 5}; 
+    std::set<int> mySet(myVector.begin(), myVector.end());
+    return 0;
+}
+``` 
+
+Both snippets demonstrate constructing the target container (`std::vector` or `std::set`) using a range constructor with the iterators pointing to the beginning and end of the source container (`std::set` or `std::vector`).
+
+-------------------------------------------------------------------------------------------------------------------------
